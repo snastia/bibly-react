@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Painting } from "../../Painting"
-import s from "./Painting.module.css"
+// import s from "./Painting.module.css"
 
 export function PaintingList ({paintingData}){
   return(

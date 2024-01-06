@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-// import s from './Alert.module.css';
 import { StyledAlert } from './Alert.styled';
 
 export const Alert = ({text, type}) => {
