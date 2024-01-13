@@ -13,8 +13,5 @@ export const ColorpickerOption = styled.div`
     height: 40px;
     margin: 8px;
     background-color: ${({bgc}) => bgc};
-
-    :hover{
-        color: tomato;
-    }
+    border: ${(props) => props.idx === props.currentIdx ? "2px solid black" : "none"}
 `

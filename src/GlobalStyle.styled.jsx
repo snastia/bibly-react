@@ -21,9 +21,11 @@ body {
   h2,
   h3,
   ul,
-  a{
+  a,
+  button{
+    border: none;
     margin: 0;
-    paddin: 0;
+    padding: 0;
     list-style: none;
     text-decoration: none;
   }
