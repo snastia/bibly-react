@@ -6,117 +6,44 @@
 // import { colorPickerOptions } from '../colorOptions';
 // import { Alert } from "../Alert/Alert"
 // import { Title, Container } from "./App.styled"
-import { Component } from 'react';
+import { Component, PureComponent } from 'react';
 import { GlobalStyle } from '../../GlobalStyle.styled';
+import { PokemonForm } from '../Pokemon/PokemonForm';
+import { PokemonInfo } from '../Pokemon/PokemonInfo';
 // import { Counter } from "../Counter/Counter"
 // import { PaintingList } from '../PaintingList/PaintingList';
 // import { Component } from 'react';
 // import { DropdownMenu } from "../DropdownMenu/Dropdown";
 
-import { Form } from '../Form/Form';
+// import { Form } from '../Form/Form';
 
-export class App extends Component{
+// http://pokeapi.co/api/v2/pokemon/name
 
-  state = {
-    name: "",
-    tel: "",
-    level: "junior",
-    lisence: false,
-    whoIs: ""
-  }
+export class App extends PureComponent{
 
-  handleNameChange = (e) => {
-    this.setState({
-      name: e.currentTarget.value
-    })
-  }
+   state = {
+    pokemon: ""
+   }
 
-  handleTelChange = (e) => {
-    this.setState({
-      tel: e.currentTarget.value
-    })
-  }
-
-  handleRadioChange = (e) => {
-    this.setState({
-      level:  e.currentTarget.name
-    })
-  }
-
-  handleCheckboxChange = (e) => {
-    this.setState(prevState => ({lisence: !prevState.lisence}))
-  }
-
-  getName = (e) => {
-    this.setState({
-      whoIs: e.currentTarget.value
-    })
-  }
+   onNameChange = (name) => {
+    console.log(name)
+     this.setState({
+      pokemon: name
+     })
+   }
 
   render(){
     return(
     <div>
-        <form action="">
-          <label htmlFor="name">Name
-            <input type="text" name='name' id='name' 
-            value={this.state.name} 
-            onChange={this.handleNameChange}/>
-            </label>
-            <br />  
-             {/* <label htmlFor="">Phone number
-              <input type="tel" name='tel' 
-              value={this.state.tel} 
-              onChange={this.handleTelChange}/>
-              </label> */}
-        </form>
-        {/* <label>
-          Student
-          <input type="radio" 
-          name='student' value={this.state.whoIs} 
-          onChange={this.getName}/>
-        </label> */}
-
-        {/* <label>
-          junior
-          <input type="radio" name='junior' 
-          value={this.state.level} 
-          checked={this.state.level === "junior"}/>
-        </label>
-
-        <label>
-          middle
-          <input type="radio" name='middle' 
-          value={this.state.level} 
-          checked={this.state.level === "middle"}/>
-        </label>
-
-        <label>
-          senior
-          <input type="radio" name='senior' 
-          value={this.state.level} 
-          checked={this.state.level === "senior"}/>
-        </label> */}
-
-        <Form/>
-        <label>
-          <input type="checkbox" 
-          checked={this.state.lisence} name='lisence'
-          onChange={this.handleCheckboxChange}/>
-          Погоджуюсь з умовами договору
-        </label>
-        <br />
-        <button>Register</button>
+      <>
+       <PokemonForm onSubmit={this.onNameChange}/>
+       <PokemonInfo pokemonName={this.state.pokemon}/>
+      </>
         <GlobalStyle/>
     </div>
    )
   }
-  }
-
-
-
-// форма з ім'ям учасника конференсії
-// 2 радіо з вказанням учасника: студент і викладач
-// чекбокс 'погоджуюсь на участь в конферкнсії'
+}
 
 
 
