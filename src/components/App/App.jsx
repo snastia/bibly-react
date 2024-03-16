@@ -1,14 +1,15 @@
 // import s from './App.module.css';
 import { Component, PureComponent } from 'react';
 import { GlobalStyle } from '../../GlobalStyle.styled';
-// import { PokemonForm } from '../Pokemon/PokemonForm';
-// import { PokemonInfo } from '../Pokemon/PokemonInfo';
+import { PokemonForm } from '../Pokemon/PokemonForm';
+import { PokemonInfo } from '../Pokemon/PokemonInfo';
 // import { ColorPicker } from '../ColorPicker/ColorPicker';
 // import { colorPickerOptions } from '../colorOptions';
 // import { SignupForm } from '../SignupForm/SignupForm';
 // import { GifsList } from '../Gifs/GifList';
 // import { GifSearch } from '../Gifs/GifsSearch';
-import { Buttons } from '../Counter/Buttons';
+// import { Buttons } from '../Counter/Buttons';
+import { Clock } from '../Clock/Clock';
 
 // http://pokeapi.co/api/v2/pokemon/name
 
@@ -35,9 +36,8 @@ export class App extends PureComponent{
     return(
     <div>
       <>
-      <Buttons/>
-      {/* <SignupForm/> */}
-      {/* <ColorPicker options={colorPickerOptions}/> */}
+      <PokemonForm/>
+      <PokemonInfo/>
       </>
         <GlobalStyle/>
     </div>

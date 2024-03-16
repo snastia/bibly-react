@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react"
 
-export function SignupForm(){
-
-    const [name, setName] = useState("")
-    const [password, setPassword] = useState("")
+const useLocalStorage = (key, initialValue) => {
+    const [state, setState] = useState(window.localStorage.getItem(key) ??
+    initialValue)
 
     useEffect(() => {
-        console.log("vukluk useeffect")
-        return () => {
-            
-        }
-    }, [name, password])
+        window.localStorage.setItem(key, state)
+    }, [key, state])
+
+    return [state, setState]
+}
+
+export function SignupForm(){
+
+    const [name, setName] = useLocalStorage("name", "")
+    const [password, setPassword] = useLocalStorage("password", "")
 
     const handleChange = (e) => {
         const name = e.currentTarget.name
@@ -36,12 +40,12 @@ export function SignupForm(){
         <form onSubmit={handleSubmit}>
             <label>
                 Name
-                <input type="text" name="name" id=""/>
+                <input type="text" name="name" id="" value={name} onChange={handleChange}/>
             </label>
             <br/>
            <label>
              Password
-           <input type="password" name="password"/>
+           <input type="password" name="password" value={password} onChange={handleChange}/>
            </label>
            <br/>
            <button type="submit">Submit</button>
